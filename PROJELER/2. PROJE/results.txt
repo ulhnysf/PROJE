@@ -1,0 +1,42 @@
+
+Sorgu : SELECT c.course_name, e.grade
+FROM enrollments e
+JOIN courses c ON e.course_id = c.course_id
+WHERE e.student_id = 1;
+
+Sonuç : course_name	grade
+        Veri Yapıları	85.5
+        İşletim Sistemleri	90.0
+
+Açıklama: Öncelikle enrollments tablosunu seçtik ve 'e' olarak takma ad verdik,
+ondan sonra bir içsel birleştirme yaptık ve courses tablosunu ekledik ve 'c' olarak takma ad verdik.
+courses tablosunda 'course_id' sütunu ile enrollments tablosundan 'course_id' sütununu birleştirdik.
+BU da bize iki farklı tablodaki aynı isimli sğtunların içerisindeki bilgilerin ortak olarak eşlenmesini sağladı.
+Fakat bir filtreleme yapmamız gerekiyor ve bunu da 'WHERE' komutui le sağladık ve yanına da 
+enrollments tablosundan 'student_id' 1 olan öğrenciler iin filtreleme yaptık.  
+
+Sorgu: SELECT s.first_name, s.last_name, c.course_name, e.grade
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id
+JOIN courses c ON e.course_id = c.course_id;
+
+Sonuç :
+
+first_name	last_name	course_name	           grade
+Ali	        Yılmaz	    Veri Yapıları	        85.5
+Ali	        Yılmaz	    İşletim Sistemleri	    90.0
+Ayşe	    Demir	    Veri Yapıları	        78.0
+
+Açıklama: Bizim bu sorguda amaçladığımız şey bir öğrencinin bir dersten kaç puan aldığını bulmak.
+Fakat ihtiyacımız olan veriler farklı tablolarda farklı sütunlara ait.Bunun içinde tabloları ve tablolardan seçilen
+sütunları içsel birleştirme yapmamız gerekiyor.Şİmdide sorguyu açıklıyacağız.İlk olarak bir ana tablo belirledik ve
+bu tabloda enrollments tablosu olduve buna da 'e' takma adını verdik.Sonra students tablosu ile bir içsel birleştirme yaptık ve 's' takma 
+adını verdik.enrollments tablosu ile students tablosundan 'student_id' sütunlarını birleştirdik.Bu da farklı iki tablonun belirlenen ortak isimli sütunlarındaki verilerin birleştirilmesi ile sonuçlandı.
+Sonra tekrar bir içsel birleştirme yaptık ve courses tablosuyla yaptık ve ona da 'c' takma adını verdik.enrollments tablosu ile courses tablosundan 
+'course_id' sütunlarını seçtik.Bu da iki sütunun verilerinin birleştirilmesi anlamına geliyor.
+
+NOT: Diyagram dosyanın içindedir.
+
+
+
+
